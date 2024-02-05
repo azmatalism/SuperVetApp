@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { COLORS } from '../constants/Theme';
-import Header from '../common/Header';
+import Header from '../components/Header';
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
     return (

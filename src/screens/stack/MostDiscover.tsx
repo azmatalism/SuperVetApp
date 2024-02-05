@@ -1,8 +1,8 @@
 import { SafeAreaView, Image, ImageBackground, ScrollView, Text, View, } from 'react-native'
 import React from 'react'
-import DrawerHeader from '../../common/DrawerHeader'
+import DrawerHeader from '../../components/DrawerHeader'
 import { COLORS, Styles, dataOne } from '../../constants/Theme'
-import Liner from '../../common/Liner'
+import Liner from '../../components/Liner'
 import { FlatList } from 'react-native'
 
 const MostDiscover = () => {

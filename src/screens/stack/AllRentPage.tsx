@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { ImageBackground, SafeAreaView, FlatList, Image, StyleSheet, Text, TouchableOpacity, View, TextInput, Alert, } from 'react-native'
-import DrawerHeader from '../../common/DrawerHeader'
+import DrawerHeader from '../../components/DrawerHeader'
 import { COLORS, Styles, dataOne } from '../../constants/Theme'
 import DropDownPicker from 'react-native-dropdown-picker';
+import { ROUTES } from '../../constants';
 
 function ShowAlert() {
   Alert.alert('CONNECT METAMASK', 'You must be connect wallet before you can download this book.', [
@@ -78,7 +79,7 @@ const AllRentPage = ({navigation}) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                   activeOpacity={0.4}
-                  onPress={() => navigation.navigate("PurchaseDownload")}>
+                  onPress={() => navigation.navigate(ROUTES.PURCHASE_DOWNLOAD)}>
                   <View style={[Styles.SimpleBtn, { backgroundColor: COLORS.buy }]}>
                     <Text style={[Styles.date, Styles.whiteColor]}>ON RENT</Text>
                   </View>

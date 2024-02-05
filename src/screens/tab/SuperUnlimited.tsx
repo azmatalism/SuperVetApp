@@ -3,6 +3,7 @@ import { Image, ImageBackground, ScrollView, StyleSheet} from 'react-native'
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, Styles, dataOne } from "../../constants/Theme";
 import FeaturedSuperGlobal from "../../components/FeaturedSuperGlobal";
+import { ROUTES } from "../../constants";
 
 
 function SuperUnlimited({ navigation }) {
@@ -18,10 +19,10 @@ function SuperUnlimited({ navigation }) {
             resizeMode="cover" />
 
           {/* NEW SUPER bundle */}
-          <FeaturedSuperGlobal images={true} linerColor={COLORS.dot} headingTitle={"NEW SUPER BUNDLE"} newBadge={true} seeAll={true} onPress={() => navigation.navigate("UnlimitedAllNew", { data: dataOne, newBadge:true })} />
+          <FeaturedSuperGlobal images={true} linerColor={COLORS.dot} headingTitle={"NEW SUPER BUNDLE"} newBadge={true} seeAll={true} onPress={() => navigation.navigate(ROUTES.UNLIMITED_ALL_NEW, { data: dataOne, newBadge:true })} />
 
           {/* NEW SUPER */}
-          <FeaturedSuperGlobal images={true} linerColor={COLORS.dot} headingTitle={"NEW SUPER"} seeAll={true} onPress={() => navigation.navigate("UnlimitedAllNew", { data: dataOne })} />
+          <FeaturedSuperGlobal images={true} linerColor={COLORS.dot} headingTitle={"NEW SUPER"} seeAll={true} onPress={() => navigation.navigate(ROUTES.UNLIMITED_ALL_NEW, { data: dataOne })} />
 
           {/* Dr.psycho */}
           <FeaturedSuperGlobal images={true} linerColor={COLORS.dot} headingTitle={"DR PSYCHO"} comesoon={true} />

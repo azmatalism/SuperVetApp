@@ -1,66 +1,11 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, FlatList, Image, TouchableOpacity, } from 'react-native'
-import { COLORS, Styles } from '../../constants/Theme'
-import DrawerHeader from '../../common/DrawerHeader'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text, ImageBackground, FlatList, Image, TouchableOpacity, } from 'react-native'
+import { COLORS, Styles, dataOne } from '../../constants/Theme'
+import DrawerHeader from '../../components/DrawerHeader'
+import { ROUTES } from '../../constants'
 
-const data = [
-  {
-    image: require("../../assets/images/p1.png"),
-    name: "Dr.X :",
-    published: "(May 25,2022)",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante quis commodo duis velit maecenas nibh.dolor sit amet, consectetur adipiscing elit...",
-    time: "4d ago.",
-    date: "Monday 11:30 AM - Jul 2022",
-  },
-  {
-    image: require("../../assets/images/p2.png"),
-    name: "Sister Nina :",
-    published: "(May 25,2022)",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante quis commodo duis velit maecenas nibh.dolor sit amet, consectetur adipiscing elit...",
-    time: "4d ago.",
-    date: "Monday 11:30 AM - Jul 2022",
-  },
-  {
-    image: require("../../assets/images/p3.png"),
-    name: "Dr.Wolf :",
-    published: "(May 25,2022)",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante quis commodo duis velit maecenas nibh.dolor sit amet, consectetur adipiscing elit...",
-    time: "4d ago.",
-    date: "Monday 11:30 AM - Jul 2022",
-  },
-  {
-    image: require("../../assets/images/p4.png"),
-    name: "Dr.Psycho :",
-    published: "(May 25,2022)",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante quis commodo duis velit maecenas nibh.dolor sit amet, consectetur adipiscing elit...",
-    time: "4d ago.",
-    date: "Monday 11:30 AM - Jul 2022",
-  },
-  {
-    image: require("../../assets/images/p5.png"),
-    name: "Dr.X :",
-    published: "(May 25,2022)",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante quis commodo duis velit maecenas nibh.dolor sit amet, consectetur adipiscing elit...",
-    time: "4d ago.",
-    date: "Monday 11:30 AM - Jul 2022",
-  },
-  {
-    image: require("../../assets/images/p2.png"),
-    name: "Sister Nina :",
-    published: "(May 25,2022)",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante quis commodo duis velit maecenas nibh.dolor sit amet, consectetur adipiscing elit...",
-    time: "4d ago.",
-    date: "Monday 11:30 AM - Jul 2022",
-  },
+export default function ArchivedBook({navigation}) {
 
-
-]
-
-
-
-export default function ArchivedBook() {
-const navigation = useNavigation();
   return (
     <View style={Styles.container}>
       <DrawerHeader headerLogo={true} downIcon={true} />
@@ -68,14 +13,14 @@ const navigation = useNavigation();
         source={require("../../assets/images/background.png")}
         style={Styles.container}>
         <FlatList
-          data={data}
+          data={dataOne}
           renderItem={({ item }) =>
             <View style={{ marginTop: 20, }}>
               <View style={{ flexDirection: "row", paddingLeft: 20, paddingRight: 20, }}>
                 <TouchableOpacity
-                onPress={()=>navigation.navigate("MyComicsProfile")}
+                onPress={()=>navigation.navigate(ROUTES.PURSHACE_PAGE, { dataOne: item})}
                 activeOpacity={0.7}>
-                <Image source={item.image} resizeMode="contain" />
+                <Image source={item.faeturedImage} resizeMode="contain" />
                 </TouchableOpacity>
                 <View style={{ marginLeft: 20 }}>
                   <Text style={Styles.SecondTitle}>{item.name}</Text>
@@ -91,7 +36,7 @@ const navigation = useNavigation();
                   <Text style={[Styles.date, ]}>{item.date}</Text>
                 </View>
               </View>
-              <View style={{ borderColor: COLORS.seperator, borderWidth: 1, }} />
+              <View style={Styles.seperator} />
             </View>
           } />
       </ImageBackground>

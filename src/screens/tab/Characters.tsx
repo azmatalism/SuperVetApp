@@ -1,14 +1,13 @@
 import React from "react";
 import { SafeAreaView, ImageBackground, ScrollView, Text, View } from "react-native"
 import { COLORS, Styles, dataTwo } from "../../constants/Theme";
-import CharactersGlobal from "../../components/CharactersGlobal";
-import { useNavigation } from "@react-navigation/native";
 import LinearGradient from "react-native-linear-gradient";
 import FeaturedSuperGlobal from "../../components/FeaturedSuperGlobal";
+import { ROUTES } from "../../constants";
 
 
-function Characters() {
-  const navigation = useNavigation();
+function Characters({navigation}) {
+
   return (
     <SafeAreaView style={Styles.container}>
       <ImageBackground
@@ -29,9 +28,9 @@ function Characters() {
             </LinearGradient>
           </ImageBackground>
           <FeaturedSuperGlobal chaacterImage={true} linerColor={COLORS.dot} headingTitle={"FEATURED CHARACTERS"} />
-          <FeaturedSuperGlobal chaacterImage={true} linerColor={COLORS.dot} headingTitle={"CHARACTERS LIST"} seeAll={true} onPress={() => navigation.navigate("CharacterAll")} />
-          <FeaturedSuperGlobal chaacterImage={true} teamImage={true} linerColor={COLORS.dot} headingTitle={"TEAM LIST"} seeAll={true} onPress={() => navigation.navigate("CharacterAll")} />
-          <FeaturedSuperGlobal chaacterImage={true} linerColor={COLORS.dot} headingTitle={"VILLAINS"} comesoon={true} seeAll={true} onPress={() => navigation.navigate("UnlimitedAllNew", { data: dataTwo })} />
+          <FeaturedSuperGlobal chaacterImage={true} linerColor={COLORS.dot} headingTitle={"CHARACTERS LIST"} seeAll={true} onPress={() => navigation.navigate(ROUTES.CHARACTER_ALL)} />
+          <FeaturedSuperGlobal chaacterImage={true} teamImage={true} linerColor={COLORS.dot} headingTitle={"TEAM LIST"} seeAll={true} onPress={() => navigation.navigate(ROUTES.CHARACTER_ALL)} />
+          <FeaturedSuperGlobal chaacterImage={true} linerColor={COLORS.dot} headingTitle={"VILLAINS"} comesoon={true} seeAll={true} onPress={() => navigation.navigate(ROUTES.UNLIMITED_ALL_NEW, { data: dataTwo })} />
         </ScrollView>
       </ImageBackground>
 

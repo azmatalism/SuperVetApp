@@ -1,8 +1,9 @@
 import React from "react";
 import { SafeAreaView, FlatList, Image, ImageBackground, ScrollView, Text, TouchableOpacity, View, } from "react-native"
-import { COLORS, Styles, dataOne } from "../../constants/Theme";
+import { Styles, dataOne } from "../../constants/Theme";
 import { useNavigation } from "@react-navigation/native";
 import LinearGradient from "react-native-linear-gradient";
+import { ROUTES } from "../../constants";
 
 function Discover() {
   const navigation = useNavigation();
@@ -32,7 +33,7 @@ function Discover() {
             <View >
               <View style={{ flexDirection: "row", margin: 20 }}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate("MostDiscover")}
+                  onPress={() => navigation.navigate(ROUTES.MOST_DISCOVER)}
                   activeOpacity={0.6}>
                   <Image source={item.discoverImage} resizeMode="contain" />
                 </TouchableOpacity>

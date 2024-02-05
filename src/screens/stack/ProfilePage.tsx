@@ -1,9 +1,10 @@
 import { Image, ImageBackground, SafeAreaView, ScrollView, Text, View } from 'react-native'
 import React from 'react'
 import { COLORS, Styles, dataOne } from '../../constants/Theme';
-import DrawerHeader from '../../common/DrawerHeader';
+import DrawerHeader from '../../components/DrawerHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FeaturedSuperGlobal from '../../components/FeaturedSuperGlobal';
+import { ROUTES } from '../../constants';
 
 const ProfilePage = ({ navigation }) => {
     return (
@@ -28,9 +29,9 @@ const ProfilePage = ({ navigation }) => {
                             <Text style={Styles.published}>Joined May 25 2022</Text>
                         </View>
                     </View>
-                    <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"MY COMICS"} seeAll={true} onPress={() => navigation.navigate("UnlimitedAllNew", { data: dataOne, feat: true, btn: true })} />
-                    <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"MY VIDEO COMICS"} play={true} seeAll={true} onPress={() => navigation.navigate("UnlimitedAllNew", { data: dataOne, feat: true, play: true, btn: true })} />
-                    <FeaturedSuperGlobal images={true} linerColor={COLORS.dot} headingTitle={"MY COMICS BUNDLES"} seeAll={true} onPress={() => navigation.navigate("UnlimitedAllNew", { data: dataOne })} />
+                    <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"MY COMICS"} seeAll={true} onPress={() => navigation.navigate(ROUTES.UNLIMITED_ALL_NEW, { data: dataOne, feat: true, btn: true })} />
+                    <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"MY VIDEO COMICS"} play={true} seeAll={true} onPress={() => navigation.navigate(ROUTES.UNLIMITED_ALL_NEW, { data: dataOne, feat: true, play: true, btn: true })} />
+                    <FeaturedSuperGlobal images={true} linerColor={COLORS.dot} headingTitle={"MY COMICS BUNDLES"} seeAll={true} onPress={() => navigation.navigate(ROUTES.UNLIMITED_ALL_NEW, { data: dataOne })} />
                     <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"MY RENTALS"} buyColor={true} />
                 </ScrollView>
             </ImageBackground>

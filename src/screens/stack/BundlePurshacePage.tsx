@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, ImageBackground, ScrollView, Text, View, Image, TouchableOpacity } from 'react-native'
-import DrawerHeader from '../../common/DrawerHeader'
+import DrawerHeader from '../../components/DrawerHeader'
 import { COLORS, Styles } from '../../constants/Theme'
 import { useNavigation } from '@react-navigation/native'
 import LinearGradient from 'react-native-linear-gradient'

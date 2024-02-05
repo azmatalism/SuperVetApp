@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, ImageBackground, FlatList, Image, } from 'react-native'
 import { COLORS, Styles } from '../../constants/Theme'
-import DrawerHeader from '../../common/DrawerHeader'
+import DrawerHeader from '../../components/DrawerHeader'
 
 const data = [
     {

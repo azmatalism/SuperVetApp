@@ -3,12 +3,12 @@ import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "reac
 import { COLORS } from "../constants/Theme";
 import { useNavigation } from "@react-navigation/native";
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
+import { ROUTES } from '../constants';
 const back = require("../assets/images/drawerBack.png");
-const search = require("../assets/images/drawerSearch.png");
 const download = require("../assets/images/download.png");
 
 
-function DrawerHeader({headerLogo, search, downIcon}) {
+function DrawerHeader({ headerLogo, search, downIcon }) {
     const navigation = useNavigation();
     return (
         <View style={styles.header}>
@@ -20,9 +20,9 @@ function DrawerHeader({headerLogo, search, downIcon}) {
                 <Text style={styles.titleBack}>BACK</Text>
             </TouchableOpacity>
             {
-                headerLogo ? 
-                <Image source={require("../assets/images/headerLogo.png")} style={styles.HeaderLogo} resizeMode="contain" />
-                : null
+                headerLogo ?
+                    <Image source={require("../assets/images/headerLogo.png")} style={styles.HeaderLogo} resizeMode="contain" />
+                    : null
             }
 
             {
@@ -30,7 +30,7 @@ function DrawerHeader({headerLogo, search, downIcon}) {
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input} placeholder="Search..." placeholderTextColor={COLORS.white} />
                         {/* <Image source={search} resizeMode="contain" /> */}
-                        <EvilIcons name="search" size={15} color="#fff"/>
+                        <EvilIcons name="search" size={15} color={COLORS.white} />
                     </View>
                     : null
             }
@@ -38,7 +38,7 @@ function DrawerHeader({headerLogo, search, downIcon}) {
             {
                 downIcon ?
                     <TouchableOpacity
-                        onPress={() => console.log("Download Clicked")}>
+                        onPress={() => navigation.navigate(ROUTES.DOWNLOAD)}>
                         <Image source={download} resizeMode="contain" style={styles.download} />
                     </TouchableOpacity>
                     : null
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 
     },
     download: {
-        marginRight:20
+        marginRight: 20
     },
 
 })

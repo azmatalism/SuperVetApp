@@ -1,7 +1,7 @@
 import React from 'react'
 import { SafeAreaView, Image, ImageBackground, ScrollView, Text, TouchableOpacity, View, Alert, } from 'react-native'
 import { Styles } from '../../constants/Theme';
-import DrawerHeader from '../../common/DrawerHeader';
+import DrawerHeader from '../../components/DrawerHeader';
 import LinearGradient from 'react-native-linear-gradient';
 
 

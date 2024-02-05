@@ -1,8 +1,8 @@
 import React from 'react'
 import { SafeAreaView, FlatList, Image, ImageBackground, Text, View, } from 'react-native'
 import { Styles, dataOne } from '../../constants/Theme'
-import ProgressBar from '../../common/ProgressBar'
-import DrawerHeader from '../../common/DrawerHeader'
+import ProgressBar from '../../components/ProgressBar'
+import DrawerHeader from '../../components/DrawerHeader'
 
 function Download() {
     return (

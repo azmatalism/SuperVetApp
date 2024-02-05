@@ -1,44 +1,40 @@
 import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Notification from '../screens/stack/Notification';
-import Featured from '../screens/tab/Featured';
-import Download from '../screens/stack/Download';
-import PurshacePage from '../screens/stack/PurshacePage';
-import AllRentPage from '../screens/stack/AllRentPage';
-import BundlePurshacePage from '../screens/stack/BundlePurshacePage';
-import UnlimitedAllNew from '../screens/stack/UnlimitedAllNew';
-import MostDiscover from '../screens/stack/MostDiscover';
-import CharacterProfile from '../screens/stack/CharacterProfile';
-import CharacterAll from '../screens/stack/CharacterAll';
-import ProfilePage from '../screens/stack/ProfilePage';
-import PurchaseDownload from '../common/PurchaseDownload';
+import { createStackNavigator } from '@react-navigation/stack';
+import { ROUTES } from '../constants';
+import {
+  AllRentPage, BundlePurshacePage, CharacterAll, CharacterProfile, Download, MostDiscover,
+  Notification, ProfilePage, PurchaseDownload, PurshacePage, UnlimitedAllNew
+} from '../screens/screens';
+import DrawerNavigator from './DrawerNavigator';
 
-const Stack = createNativeStackNavigator();
 
-function StackNavigator () {
+const Stack = createStackNavigator();
+
+function StackNavigator() {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false,}}>
-      <Stack.Screen name="as" component={Featured} />
-        {/* PurchaseDownload screen for AllRentPage and & BundlePurchacePage */}
-        <Stack.Screen  name="PurchaseDownload" component={PurchaseDownload} />
-        {/* Notification and Download screen for TabBar Header */}
-        <Stack.Screen  name="Notification" component={Notification} />
-        <Stack.Screen  name="Download" component={Download} />
-        {/* Drawer Navigator */}
-        {/* MyComicsProfile screen for MyComics */}
-        {/* <Stack.Screen  name="MyComicsProfile" component={MyComicsProfile} /> */}
-        <Stack.Screen  name="ProfilePage" component={ProfilePage} />
-        {/* PurshacePage and AllRentPage screen for Featured */}
-        <Stack.Screen  name="PurshacePage" component={PurshacePage} />
-        <Stack.Screen  name="AllRentPage" component={AllRentPage} />
-        {/* BundlePurchacePage and UnlimitedAllNew screen for SuperUnlimited */}
-        <Stack.Screen  name="BundlePurchacePage" component={BundlePurshacePage} />
-        <Stack.Screen  name="UnlimitedAllNew" component={UnlimitedAllNew} />
-        {/* CharacterProfile screen for Character */}
-        <Stack.Screen  name="CharacterProfile" component={CharacterProfile} />
-        <Stack.Screen  name="CharacterAll" component={CharacterAll} />
-        {/* MostDiscover screen for Discover screen */}
-        <Stack.Screen  name="MostDiscover" component={MostDiscover} />
+    <Stack.Navigator initialRouteName={ROUTES.HOME} screenOptions={{ headerShown: false, }}>
+      <Stack.Screen name={ROUTES.HOME} component={DrawerNavigator} 
+      //Hide All Bottom Tab Screen Header
+      options={{headerShown:false}}
+      />
+      {/* PurchaseDownload screen for AllRentPage and & BundlePurchacePage */}
+      <Stack.Screen name={ROUTES.PURCHASE_DOWNLOAD} component={PurchaseDownload} />
+      {/* Notification and Download screen for TabBar Header */}
+      <Stack.Screen name={ROUTES.NOTIFICATION} component={Notification} />
+      <Stack.Screen name={ROUTES.DOWNLOAD} component={Download} />
+      {/* Drawer Navigator */}
+      <Stack.Screen name={ROUTES.PROFILE_PAGE} component={ProfilePage} />
+      {/* PurshacePage and AllRentPage screen for Featured */}
+      <Stack.Screen name={ROUTES.PURSHACE_PAGE} component={PurshacePage} />
+      <Stack.Screen name={ROUTES.ALL_RENT_PAGE} component={AllRentPage} />
+      {/* BundlePurchacePage and UnlimitedAllNew screen for SuperUnlimited */}
+      <Stack.Screen name={ROUTES.BUNDLE_PURSHACE_PAGE} component={BundlePurshacePage} />
+      <Stack.Screen name={ROUTES.UNLIMITED_ALL_NEW} component={UnlimitedAllNew} />
+      {/* CharacterProfile screen for Character */}
+      <Stack.Screen name={ROUTES.CHARACTER_PROFILE} component={CharacterProfile} />
+      <Stack.Screen name={ROUTES.CHARACTER_ALL} component={CharacterAll} />
+      {/* MostDiscover screen for Discover screen */}
+      <Stack.Screen name={ROUTES.MOST_DISCOVER} component={MostDiscover} />
     </Stack.Navigator>
   )
 }

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { FlatList, Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View, Alert, Modal } from "react-native"
+import React, {} from "react";
+import { FlatList, Image, ImageBackground, ScrollView, Text, TouchableOpacity, View, Alert} from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLORS, Styles, dataThree } from "../../constants/Theme";
+import { Styles, dataThree } from "../../constants/Theme";
 import LinearGradient from "react-native-linear-gradient";
 
 // const data = [

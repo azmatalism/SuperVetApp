@@ -1,54 +1,11 @@
 import { View, Text, StyleSheet, ImageBackground, ScrollView, Image, TouchableOpacity, } from 'react-native'
 import React from 'react'
-import { COLORS, Styles } from '../../constants/Theme'
+import { COLORS, Styles, dataOne } from '../../constants/Theme'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Icons from 'react-native-vector-icons/MaterialIcons'
-import DrawerHeader from '../../common/DrawerHeader'
-
-const data = [
-  {
-    image: require("../../assets/images/p3.png"),
-    name: "Dr.Steel Shot :",
-    title: "The Young Boy (2022)",
-    rental: "Harry J",
-    rent: "300 SVET",
-    duration: "3 Days 27 June - 30 June 2022",
-  },
-  {
-    image: require("../../assets/images/p1.png"),
-    name: "Sister Nina :",
-    title: "The Saviour (2021)",
-    rental: "Azmat Ahmed",
-    rent: "500 SVET",
-    duration: "10 Days 20 Jul - 30 June 2021",
-  },
-  {
-    image: require("../../assets/images/p2.png"),
-    name: "Dr.Wolf :",
-    title: "The Jungle Boy (2020)",
-    rental: "Umair Yaseen",
-    rent: "500 SVET",
-    duration: "11 Days 25 June - 30 jul 2023",
-  },
-  {
-    image: require("../../assets/images/p4.png"),
-    name: "Dr.Psycho :",
-    title: "Who I Psycho ? (2022)",
-    rental: "Yaseen Ahmed",
-    rent: "500 SVET",
-    duration: "15 Days 25 Oct - 25 June 2020",
-  },
-  {
-    image: require("../../assets/images/p5.png"),
-    name: "Dr.X :",
-    title: "The Out Sider (2022)",
-    rental: "Wasaam K",
-    rent: "500 SVET",
-    duration: "20 Days 15 Oct - 20 June 2018",
-  },
+import DrawerHeader from '../../components/DrawerHeader'
 
 
-]
 
 export default function MyTanents() {
 
@@ -75,12 +32,12 @@ export default function MyTanents() {
             </View>
           </View>
           {
-            data.map((item, index) =>
+            dataOne.map((item, index) =>
               <View key={index} style={{ marginTop: 20 }}>
                 <View style={{ flexDirection: "row", paddingLeft: 20, paddingRight: 20, }}>
-                  <Image source={item.image} resizeMode="contain" />
+                  <Image source={item.faeturedImage} resizeMode="contain" />
                   <View style={{ marginLeft: 20 }}>
-                    <Text style={Styles.SecondTitle}>{item.name}</Text>
+                    <Text style={Styles.SecondTitle}>{item.artist}</Text>
                     <Text style={Styles.SecondTitle}>{item.title}</Text>
                     <Text style={[Styles.published, Styles.dotColor]}>Rental : <Text style={[Styles.published, {color:COLORS.white}]}>{item.rental}</Text></Text>
                     <Text style={[Styles.published, Styles.redColor]}>Rent : <Text style={[Styles.published, {color:COLORS.white}]}>{item.rent}</Text></Text>
@@ -94,7 +51,7 @@ export default function MyTanents() {
                       <Icons name="delete" size={30} color="white" />
                   </TouchableOpacity>
                 </View>
-                <View style={{ borderColor: COLORS.seperator, borderWidth: 1, }} />
+                <View style={Styles.seperator}/>
               </View>
             )
           }

@@ -1,20 +1,13 @@
 import React from 'react'
 import { Image, StyleSheet,} from 'react-native'
 import { COLORS,  CONSTANT } from '../constants/Theme';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import MyComics from '../screens/drawer/MyComics';
-import MyTanents from '../screens/drawer/MyTanents';
-import ArchivedBook from '../screens/drawer/ArchivedBook';
-import WishList from '../screens/drawer/WishList';
-import TabNavigator from './TabNavigator';
+import { ROUTES } from '../constants';
+import { ArchivedBook, MyComics, MyTanents, WishList } from '../screens/screens';
 import CustomDrawer from './CustomDrawer';
-
-
+import TabNavigator from './TabNavigator';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawers = createDrawerNavigator();
-
-
-
 
 function DrawerNavigator() {
   return (
@@ -25,24 +18,9 @@ function DrawerNavigator() {
             drawerItemStyle: styles.drawerItemStyles,
             drawerLabelStyle: styles.drawerLabelStyles,
           }}>
-
-          {/* {ScreensArray.map((item, index) => {
-            return (
-              <Drawers.Screen key={index} name={item.route} component={item.component}
-                options={{
-                  item,
-                  drawerIcon: ({ color, size, focused }) => (
-                    <Icon type={item.type} name={item.icon} size={size} color={color} />
-                  )
-                }}
-              />
-            )
-          })} */}
-
-          {/* <Drawers.Screen name="Metamask" component={Metamask} /> */}
-
-          <Drawers.Screen name="Home"
+          <Drawers.Screen name={ROUTES.HOME_DRAWER}
             options={{
+              headerShown:false,
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
               drawerIcon: () => (
@@ -50,7 +28,7 @@ function DrawerNavigator() {
               )
             }}
             component={TabNavigator} />
-          <Drawers.Screen name="My Comics"
+          <Drawers.Screen name={ROUTES.MY_COMICS}
             options={{
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
@@ -60,8 +38,7 @@ function DrawerNavigator() {
             }}
             component={MyComics}
           />
-
-          <Drawers.Screen name="My Tanents"
+          <Drawers.Screen name={ROUTES.MY_TANENTS}
             options={{
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
@@ -70,10 +47,7 @@ function DrawerNavigator() {
               )
             }}
             component={MyTanents} />
-
-          {/* <Drawers.Screen name="Svet Rewards" component={SvetRewards} /> */}
-
-          <Drawers.Screen name="Archived Book"
+          <Drawers.Screen name={ROUTES.ARCHIVED_BOOK}
             options={{
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
@@ -82,7 +56,7 @@ function DrawerNavigator() {
               )
             }}
             component={ArchivedBook} />
-          <Drawers.Screen name="Wish List"
+          <Drawers.Screen name={ROUTES.WISH_LIST}
             options={{
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
@@ -91,9 +65,6 @@ function DrawerNavigator() {
               )
             }}
             component={WishList} />
-
-          {/* <Drawers.Screen name="Stats" component={Stats} /> */}
-          {/* <Drawers.Screen name="About" component={About} /> */}
         </Drawers.Navigator>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import { SafeAreaView, ImageBackground, ScrollView, Text, View, Image, TouchableOpacity } from 'react-native'
-import DrawerHeader from '../../common/DrawerHeader'
+import DrawerHeader from '../../components/DrawerHeader'
 import { COLORS, Styles, dataOne } from '../../constants/Theme'
 import LinearGradient from 'react-native-linear-gradient'
 import FeaturedSuperGlobal from '../../components/FeaturedSuperGlobal'
+import { ROUTES } from '../../constants'
 
 function PurshacePage({ route, navigation }) { 
   // const {dataOne,dataTwo}=route.params
@@ -54,7 +55,7 @@ function PurshacePage({ route, navigation }) {
                         </TouchableOpacity>
                         <TouchableOpacity
                           activeOpacity={0.4}
-                          onPress={() => navigation.navigate("AllRentPage")}>
+                          onPress={() => navigation.navigate(ROUTES.ALL_RENT_PAGE)}>
                           <View style={[Styles.SimpleBtn, { backgroundColor: COLORS.buy }]}>
                             <Text style={[Styles.date, Styles.uppercase, Styles.whiteColor]}>on RENT</Text>
                           </View>
@@ -74,8 +75,8 @@ function PurshacePage({ route, navigation }) {
             </LinearGradient>
           </ImageBackground>
           <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"MORE DR.PSYCHO"} comesoon={true} />
-          <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"RECOMENDED"} seeAll={true} onPress={() => navigation.navigate("UnlimitedAllNew", { data: dataOne, feat: true, })} />
-          <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"PSYCHO VIDEOS"} play={true} seeAll={true} onPress={() => navigation.navigate("UnlimitedAllNew", { data: dataOne, feat: true, play: true })} />
+          <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"RECOMENDED"} seeAll={true} onPress={() => navigation.navigate(ROUTES.UNLIMITED_ALL_NEW, { data: dataOne, feat: true, })} />
+          <FeaturedSuperGlobal linerColor={COLORS.dot} headingTitle={"PSYCHO VIDEOS"} play={true} seeAll={true} onPress={() => navigation.navigate(ROUTES.UNLIMITED_ALL_NEW, { data: dataOne, feat: true, play: true })} />
         </ScrollView>
       </ImageBackground>
 

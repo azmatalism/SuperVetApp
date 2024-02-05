@@ -1,7 +1,7 @@
 import React from 'react'
 import {FlatList, Alert, Image, ImageBackground, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { Styles, dataOne } from '../../constants/Theme';
-import DrawerHeader from '../../common/DrawerHeader';
+import DrawerHeader from '../../components/DrawerHeader';
 import LinearGradient from 'react-native-linear-gradient';
 
 function ShowAlert() {
