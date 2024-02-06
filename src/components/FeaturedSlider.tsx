@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, FlatList, View, Text, Dimensions, Image, } from 'react-native';
 import { COLORS, Styles } from '../constants/Theme';
+import { IMGS } from '../constants';
 
 const { width } = Dimensions.get('window');
 
@@ -9,28 +10,28 @@ const { width } = Dimensions.get('window');
 const slides = [
     {
         id: '1',
-        image: require("../assets/images/featuredSlider.png"),
+        image: IMGS.featuredSlider,
         title: 'READ SUPER COMICS',
         subtitle: 'WANT TO EARN?',
 
     },
     {
         id: '2',
-        image: require("../assets/images/featuredSlider2.png"),
+        image: IMGS.featuredSlider2,
         title: 'READ SUPER COMICS',
         subtitle: 'WANT TO EARN?',
 
     },
     {
         id: '3',
-        image: require("../assets/images/featuredSlider1.png"),
+        image: IMGS.featuredSlider1,
         title: 'READ SUPER COMICS',
         subtitle: 'WANT TO EARN?',
 
     },
     {
         id: '4',
-        image: require("../assets/images/featuredSlider3.png"),
+        image: IMGS.featuredSlider3,
         title: 'READ SUPER COMICS',
         subtitle: 'WANT TO EARN?',
 

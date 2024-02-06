@@ -3,25 +3,20 @@ import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "reac
 import { COLORS } from "../constants/Theme";
 import { useNavigation } from "@react-navigation/native";
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
-import { ROUTES } from '../constants';
-const back = require("../assets/images/drawerBack.png");
-const download = require("../assets/images/download.png");
-
+import { IMGS, ROUTES } from '../constants';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 function DrawerHeader({ headerLogo, search, downIcon }) {
     const navigation = useNavigation();
     return (
-        <View style={styles.header}>
-            <TouchableOpacity
-                activeOpacity={0.9}
-                onPress={navigation.goBack}
-                style={{ flexDirection: "row", }}>
-                <Image source={back} resizeMode="contain" style={styles.backIcon} />
+        <View style={styles.header}> 
+            <TouchableOpacity activeOpacity={0.9}  onPress={navigation.goBack} style={{ flexDirection: "row",marginLeft:10 }}>
+                <Icon name="arrow-back" size={22} color={COLORS.white} />
                 <Text style={styles.titleBack}>BACK</Text>
             </TouchableOpacity>
             {
                 headerLogo ?
-                    <Image source={require("../assets/images/headerLogo.png")} style={styles.HeaderLogo} resizeMode="contain" />
+                    <Image source={IMGS.headerLogo} style={styles.HeaderLogo} resizeMode="contain" />
                     : null
             }
 
@@ -29,7 +24,6 @@ function DrawerHeader({ headerLogo, search, downIcon }) {
                 search ?
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input} placeholder="Search..." placeholderTextColor={COLORS.white} />
-                        {/* <Image source={search} resizeMode="contain" /> */}
                         <EvilIcons name="search" size={15} color={COLORS.white} />
                     </View>
                     : null
@@ -39,7 +33,7 @@ function DrawerHeader({ headerLogo, search, downIcon }) {
                 downIcon ?
                     <TouchableOpacity
                         onPress={() => navigation.navigate(ROUTES.DOWNLOAD)}>
-                        <Image source={download} resizeMode="contain" style={styles.download} />
+                        <Image source={IMGS.download} resizeMode="contain" style={styles.download} />
                     </TouchableOpacity>
                     : null
             }
@@ -66,13 +60,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: "center"
-    },
-
-    backIcon: {
-        height: 20,
-        width: 20,
-        marginLeft: 10,
-
     },
     titleBack: {
         color: COLORS.white,

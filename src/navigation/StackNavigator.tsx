@@ -2,23 +2,22 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import { ROUTES } from '../constants';
 import {
-  AllRentPage, BundlePurshacePage, CharacterAll, CharacterProfile, Download, MostDiscover,
-  Notification, ProfilePage, PurchaseDownload, PurshacePage, UnlimitedAllNew
+  AllRentPage, BundlePurshacePage, CharacterAll, CharacterProfile, Download, IntroScreen, MostDiscover,
+  Notification, ProfilePage, PurchaseDownload, PurshacePage, StartDownload, UnlimitedAllNew
 } from '../screens/screens';
 import DrawerNavigator from './DrawerNavigator';
 
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator(); 
 
 function StackNavigator() {
   return (
-    <Stack.Navigator initialRouteName={ROUTES.HOME} screenOptions={{ headerShown: false, }}>
-      <Stack.Screen name={ROUTES.HOME} component={DrawerNavigator} 
-      //Hide All Bottom Tab Screen Header
-      options={{headerShown:false}}
-      />
+    <Stack.Navigator initialRouteName={ROUTES.INTRO} screenOptions={{ headerShown: false, }}>
+      <Stack.Screen name={ROUTES.INTRO} component={IntroScreen}/>
+      <Stack.Screen name={ROUTES.HOME} component={DrawerNavigator}/>
       {/* PurchaseDownload screen for AllRentPage and & BundlePurchacePage */}
       <Stack.Screen name={ROUTES.PURCHASE_DOWNLOAD} component={PurchaseDownload} />
+      <Stack.Screen name={ROUTES.START_DOWNLOAD} component={StartDownload} />
       {/* Notification and Download screen for TabBar Header */}
       <Stack.Screen name={ROUTES.NOTIFICATION} component={Notification} />
       <Stack.Screen name={ROUTES.DOWNLOAD} component={Download} />

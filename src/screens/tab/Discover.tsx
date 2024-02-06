@@ -3,21 +3,17 @@ import { SafeAreaView, FlatList, Image, ImageBackground, ScrollView, Text, Touch
 import { Styles, dataOne } from "../../constants/Theme";
 import { useNavigation } from "@react-navigation/native";
 import LinearGradient from "react-native-linear-gradient";
-import { ROUTES } from "../../constants";
+import { IMGS, ROUTES } from "../../constants";
 
 function Discover() {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={Styles.container}>
 
-      <ImageBackground
-        source={require("../../assets/images/background.png")}
-        style={Styles.container}>
+      <ImageBackground source={IMGS.background} style={Styles.container}>
         <ScrollView >
-          <ImageBackground source={require("../../assets/images/featuredSlider.png")}
-            style={Styles.featuredImg} resizeMode="cover">
-            <LinearGradient
-              style={Styles.featuredImg}
+          <ImageBackground source={IMGS.featuredSlider} style={Styles.featuredImg} resizeMode="cover">
+            <LinearGradient style={Styles.featuredImg}
               colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 95)']}>
               <View style={{ justifyContent: 'center', alignItems: 'flex-end' }}>
                 <Text style={Styles.description}>High on <Text style={Styles.dotColor}>Demand</Text></Text>
@@ -32,9 +28,7 @@ function Discover() {
           renderItem={({ item }) =>
             <View >
               <View style={{ flexDirection: "row", margin: 20 }}>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate(ROUTES.MOST_DISCOVER)}
-                  activeOpacity={0.6}>
+                <TouchableOpacity onPress={() => navigation.navigate(ROUTES.MOST_DISCOVER)} activeOpacity={0.6}>
                   <Image source={item.discoverImage} resizeMode="contain" />
                 </TouchableOpacity>
                 <View style={{ marginLeft: 40, marginRight: 20, justifyContent: "center" }}>

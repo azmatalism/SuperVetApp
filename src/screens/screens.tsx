@@ -17,6 +17,7 @@ export {default as Notification} from './stack/Notification';
 export {default as Download} from './stack/Download';
 export {default as MostDiscover} from './stack/MostDiscover';
 export {default as PurchaseDownload} from './stack/PurchaseDownload';
+export {default as StartDownload} from './stack/StartDownload';
 //Drawer Screens
 export {default as MyComics} from './drawer/MyComics';
 export {default as MyTanents} from './drawer/MyTanents';

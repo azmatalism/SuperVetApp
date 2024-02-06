@@ -4,14 +4,15 @@ import DrawerHeader from '../../components/DrawerHeader'
 import { COLORS, Styles, dataOne } from '../../constants/Theme'
 import Liner from '../../components/Liner'
 import { FlatList } from 'react-native'
+import { IMGS } from '../../constants'
 
 const MostDiscover = () => {
     return (
         <SafeAreaView style={Styles.container}>
             <DrawerHeader downIcon={true} />
-            <ImageBackground source={require("../../assets/images/background.png")} style={Styles.container}>
+            <ImageBackground source={IMGS.background} style={Styles.container}>
                 <ScrollView>
-                    <Image source={require('../../assets/images/discoverhead.png')} style={{ width: "100%" }} resizeMode="cover" />
+                    <Image source={IMGS.discoverhead} style={{ width: "100%" }} resizeMode="cover" />
                     <View>
                         <Text style={[Styles.SecondTitle, { marginHorizontal: 20, }]}>Super Vet : The First Show</Text>
                         <Text style={[Styles.description, { marginHorizontal: 20, }]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius pulvinar tincidunt faucibus eu amet. Praesent praesent purus magnis viverra. Ultrices enim, nisl mattis quis habitasse semper auctor. Iaculis ut neque iaculis odio. A nascetur et gravida aenean id condimentum

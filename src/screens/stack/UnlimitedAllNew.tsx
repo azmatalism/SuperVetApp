@@ -3,6 +3,7 @@ import { SafeAreaView, Image, ImageBackground, ScrollView, Text, TouchableOpacit
 import { Styles } from '../../constants/Theme';
 import DrawerHeader from '../../components/DrawerHeader';
 import LinearGradient from 'react-native-linear-gradient';
+import { IMGS } from '../../constants';
 
 
 function ShowAlert() {
@@ -28,10 +29,10 @@ function UnlimitedAllNew({ route }) {
         <SafeAreaView style={Styles.container}>
             <DrawerHeader search={true} downIcon={true} />
             <ImageBackground
-                source={require("../../assets/images/background.png")}
+                source={IMGS.background}
                 style={Styles.container}>
                 <ScrollView >
-                    <ImageBackground source={require("../../assets/images/featuredSlider.png")}
+                    <ImageBackground source={IMGS.featuredSlider}
                         style={Styles.featuredImg} resizeMode="cover">
                         <LinearGradient
                             style={Styles.featuredImg}

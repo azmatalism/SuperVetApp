@@ -4,25 +4,22 @@ import { COLORS, Styles, dataOne } from '../../constants/Theme';
 import DrawerHeader from '../../components/DrawerHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FeaturedSuperGlobal from '../../components/FeaturedSuperGlobal';
-import { ROUTES } from '../../constants';
+import { IMGS, ROUTES } from '../../constants';
 
 const ProfilePage = ({ navigation }) => {
     return (
         <SafeAreaView style={Styles.container}>
             <DrawerHeader headerLogo={true} downIcon={true} />
-            <ImageBackground
-                source={require("../../assets/images/background.png")}
-                style={Styles.container}>
+            <ImageBackground source={IMGS.background} style={Styles.container}>
                 <ScrollView >
-                    <ImageBackground source={require("../../assets/images/drawerHeader.png")}
-                        style={Styles.featuredImg} >
+                    <ImageBackground source={IMGS.drawerHeader} style={Styles.featuredImg} >
                         <View style={{ flexDirection: "row", backgroundColor: COLORS.popular, justifyContent: "center", alignItems: "center", height: 30, width: "40%", alignSelf: "flex-end", top: 70, right: 20 }}>
                             <Ionicons name="camera" size={20} color="black" />
                             <Text style={[Styles.SecondTitle, { color: COLORS.black, marginLeft: 5 }]}>EDIT COVER PHOTO</Text>
                         </View>
                     </ImageBackground>
                     <View style={{ flexDirection: "row", alignItems: "center", }}>
-                        <Image source={require('../../assets/images/drawerIcons.png')}
+                        <Image source={IMGS.drawerIcons}
                             style={{ width: 80, height: 80, borderRadius: 80 / 2, bottom: 40, left: 15 }} />
                         <View style={{ left: 20 }}>
                             <Text style={Styles.SecondTitle}>Wasaam Qazi</Text>

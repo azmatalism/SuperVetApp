@@ -1,7 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Image, FlatList, StyleSheet, Dimensions, TouchableOpacity, ImageBackground, ToastAndroid } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, Styles } from '../../constants/Theme';
+import { IMGS, ROUTES } from '../../constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width, height } = Dimensions.get('window');
 
@@ -10,127 +12,62 @@ const slides = [
     key: '1',
     title: 'Welcome to \n supervet comics!',
     description: 'Super Vet’s ComicFi The New Trend Setters',
-    image: require('../../assets/images/introLogo.png'),
+    image: IMGS.introLogo,
   },
   {
     key: '2',
     title: 'Enjoy your reading \n with supervet',
     description: 'Earn Passive Income By Just Reading Comics',
-    image: require('../../assets/images/introLogo.png'),
+    image: IMGS.introLogo,
   },
   {
     key: '3',
     title: 'Get your volumes \n From Comic Marketplace',
     description: 'Lend Comics To Ascend Profits',
-    image: require('../../assets/images/introLogo.png'),
+    image: IMGS.introLogo,
   },
   {
     key: '4',
     title: 'Get your volumes \n From Comic Marketplace',
     description: 'Lend Comics To Ascend Profits',
-    image: require('../../assets/images/introLogo.png'),
+    image: IMGS.introLogo,
   },
 ];
 
-function IntroScreen() {
+function IntroScreen({ navigation }) {
+
+  useEffect(() => {
+    checkFirstLaunch();
+  }, []);
+  const checkFirstLaunch = async () => {
+    try {
+      const isFirstLaunch = await AsyncStorage.getItem('isFirstLaunch');
+      if (isFirstLaunch === null) {
+        // If it's the first launch, set the flag to indicate that the app has been launched
+        await AsyncStorage.setItem('isFirstLaunch', 'false');
+        // If it's the first launch, navigate to the IntroScreen
+        // navigation.navigate('IntroScreen');
+        navigation.navigate(ROUTES.INTRO);
+      } else {
+        // If it's not the first launch, navigate to the HomeScreen
+        // navigation.navigate('HomeScreen');
+        navigation.navigate(ROUTES.HOME);
+      }
+    } catch (error) {
+      console.error('Error checking first launch:', error);
+    }
+  };
+  
   const flatListRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(0);
   const keyExtractor = item => item.key;
 
-  const renderItem = ({ item }) => {
-
-
-    return (
-      <SafeAreaView style={Styles.container}>
-        <ImageBackground
-          source={require("../../assets/images/introBackground.png")}
-          style={styles.imageBG}
-          resizeMode="cover"
-        >
-          <View style={styles.parentView}>
-            <View style={{ flex: 1, alignItems: "center", justifyContent: "flex-end" }}>
-              <Image source={item.image} style={styles.image} resizeMode="contain" />
-              <Text style={[Styles.headingTitle, styles.title]}>{item.title}</Text>
-              <Text style={[Styles.description, styles.description]}>{item.description}</Text>
-
-              {item.key === '1' && (
-                <TouchableOpacity
-                  style={styles.btn}
-                  onPress={() => ToastAndroid.show('Super Intro Clicked 😉', ToastAndroid.SHORT)}
-                >
-                  <Text style={styles.btnText}>Super Intro</Text>
-                </TouchableOpacity>
-              )}
-              {item.key === '2' && (
-                <TouchableOpacity
-                  style={styles.btnEmpty}
-                  onPress={() => ToastAndroid.show('Super Intro Clicked 😉', ToastAndroid.SHORT)}
-                >
-                  {/* <Text style={styles.btnText}></Text> */}
-                </TouchableOpacity>
-              )}
-              {item.key === '3' && (
-                <TouchableOpacity
-                  style={styles.btnEmpty}
-                  onPress={() => ToastAndroid.show('Super Intro Clicked 😉', ToastAndroid.SHORT)}
-                >
-                  {/* <Text style={styles.btnText}></Text> */}
-                </TouchableOpacity>
-              )}
-              {item.key === '4' && (
-                <View style={{ alignItems: "center" }}>
-                  <TouchableOpacity
-                    style={[styles.btn, styles.secondBtn]}
-                    onPress={() => ToastAndroid.show('Connect Wallet Clicked 😉', ToastAndroid.SHORT)}
-                  >
-                    <Text style={styles.btnText}>Connect Wallet</Text>
-                  </TouchableOpacity>
-                  <Text style={[Styles.description, styles.description]}>Connect Your  Metamask </Text>
-                </View>
-              )}
-
-              <View style={styles.indicatorContainer}>
-                {slides.map((_, index) => (
-                  <View
-                    key={index.toString()} // Use index as the key
-                    style={[
-                      styles.dot,
-                      { backgroundColor: index === currentPage ? "#FDBC17" : "rgba(253, 188, 23, 0.5)" },
-                    ]}
-                  />
-                ))}
-
-              </View>
-              {item.key === '1' && (
-                <View style={styles.skipMainContainer}>
-                  <View style={styles.skipcontainer}>
-                    <TouchableOpacity
-                      style={styles.skipBtn}
-                      onPress={() => ToastAndroid.show('Skip Clicked 😉', ToastAndroid.SHORT)}
-                    >
-                      <View style={{ flexDirection: "row" }}>
-                        <Text style={styles.skipText}>Skip</Text>
-                        <Image
-                          source={require("../../assets/images/arrowRight.png")}
-                          style={styles.skipImg}
-                          resizeMode="contain"
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-
-              )}
-            </View>
-          </View>
-        </ImageBackground>
-      </SafeAreaView>
-    );
-
-  }
-
-
-
+  const skipAllSlide = () => {
+    const lastSlideIndex = slides.length - 1;
+    const offset = lastSlideIndex * width;
+    flatListRef?.current.scrollToOffset({ offset });
+    setCurrentPage(lastSlideIndex);
+  };
 
   const handleScroll = (event) => {
     const offsetX = event.nativeEvent.contentOffset.x;
@@ -143,13 +80,68 @@ function IntroScreen() {
       <FlatList
         ref={flatListRef}
         data={slides}
-        renderItem={(item,) => renderItem(item)}
         keyExtractor={keyExtractor}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         onScroll={handleScroll}
-      />
+        renderItem={({ item }) =>
+          <SafeAreaView style={Styles.container}>
+            <ImageBackground source={IMGS.introBackground} style={styles.imageBG} resizeMode="cover">
+              <View style={styles.parentView}>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "flex-end" }}>
+                  <Image source={item.image} style={styles.image} resizeMode="contain" />
+                  <Text style={[Styles.headingTitle, styles.title]}>{item.title}</Text>
+                  <Text style={[Styles.description, styles.description]}>{item.description}</Text>
+
+                  {item.key === '1' && (
+                    <TouchableOpacity style={styles.btn} onPress={() => console.warn('Super Intro Clicked 😉')}>
+                      <Text style={styles.btnText}>{"Super Intro"}</Text>
+                    </TouchableOpacity>
+                  )}
+                  {item.key === '2' && (
+                    <TouchableOpacity style={styles.btnEmpty}></TouchableOpacity>
+                  )}
+                  {item.key === '3' && (
+                    <TouchableOpacity style={styles.btnEmpty}></TouchableOpacity>
+                  )}
+                  {item.key === '4' && (
+                    <View style={{ alignItems: "center" }}>
+                      <TouchableOpacity activeOpacity={0.7} style={[styles.btn, styles.secondBtn]}
+                        onPress={() => navigation.navigate(ROUTES.HOME)} >
+                        <Text style={styles.btnText}>{"Connect Wallet"}</Text>
+                      </TouchableOpacity>
+                      <Text style={[Styles.description, styles.description]}>{"Connect Your  Metamask "}</Text>
+                    </View>
+                  )}
+
+                  <View style={styles.indicatorContainer}>
+                    {slides.map((_, index) => (
+                      <View
+                        key={index.toString()} // Use index as the key
+                        style={[styles.dot,
+                        { backgroundColor: index === currentPage ? "#FDBC17" : "rgba(253, 188, 23, 0.5)" },
+                        ]} />
+                    ))}
+
+                  </View>
+                  {item.key === '1' && (
+                    <View style={styles.skipMainContainer}>
+                      <View style={styles.skipcontainer}>
+                        <TouchableOpacity style={styles.skipBtn} onPress={skipAllSlide}>
+                          <View style={{ flexDirection: "row" }}>
+                            <Text style={styles.skipText}>{"Skip"}</Text>
+                            <Image source={IMGS.arrowRight} style={styles.skipImg} resizeMode="contain" />
+                          </View>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  )}
+                </View>
+              </View>
+            </ImageBackground>
+          </SafeAreaView>
+        } />
     </View>
   );
 };

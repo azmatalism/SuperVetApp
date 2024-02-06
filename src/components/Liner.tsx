@@ -1,12 +1,11 @@
 import { View, Text, StyleSheet, TouchableOpacity, } from 'react-native'
 import React from 'react'
 import LinearGradient from "react-native-linear-gradient";
-import { COLORS, Styles } from '../constants/Theme';
-import { useNavigation } from '@react-navigation/native';
+import { Styles } from '../constants/Theme';
 
 
 export default function Liner({ linerColor, seeAll, headingTitle, onPress }) {
-    const navigation = useNavigation();
+   
     return (
         <View>
             <LinearGradient
@@ -29,9 +28,6 @@ export default function Liner({ linerColor, seeAll, headingTitle, onPress }) {
 }
 
 const styles = StyleSheet.create({
-    marginLeft: {
-        
-    },
     liner: {
         height: 40,
         width: "100%",

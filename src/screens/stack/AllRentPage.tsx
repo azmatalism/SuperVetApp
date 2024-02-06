@@ -3,7 +3,7 @@ import { ImageBackground, SafeAreaView, FlatList, Image, StyleSheet, Text, Touch
 import DrawerHeader from '../../components/DrawerHeader'
 import { COLORS, Styles, dataOne } from '../../constants/Theme'
 import DropDownPicker from 'react-native-dropdown-picker';
-import { ROUTES } from '../../constants';
+import { IMGS, ROUTES } from '../../constants';
 
 function ShowAlert() {
   Alert.alert('CONNECT METAMASK', 'You must be connect wallet before you can download this book.', [
@@ -35,7 +35,7 @@ const AllRentPage = ({navigation}) => {
     <SafeAreaView style={Styles.container}>
       <DrawerHeader headerLogo={true} />
       <ImageBackground
-        source={require("../../assets/images/background.png")}
+        source={IMGS.background}
         style={Styles.container}>
         <FlatList
           data={dataOne}

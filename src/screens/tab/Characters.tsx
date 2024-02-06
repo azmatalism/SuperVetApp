@@ -3,20 +3,16 @@ import { SafeAreaView, ImageBackground, ScrollView, Text, View } from "react-nat
 import { COLORS, Styles, dataTwo } from "../../constants/Theme";
 import LinearGradient from "react-native-linear-gradient";
 import FeaturedSuperGlobal from "../../components/FeaturedSuperGlobal";
-import { ROUTES } from "../../constants";
+import { IMGS, ROUTES } from "../../constants";
 
 
-function Characters({navigation}) {
+function Characters({ navigation }) {
 
   return (
     <SafeAreaView style={Styles.container}>
-      <ImageBackground
-        source={require("../../assets/images/background.png")}
-        style={Styles.container}
-        resizeMode="cover">
+      <ImageBackground source={IMGS.background} style={Styles.container} resizeMode="cover">
         <ScrollView showsVerticalScrollIndicator={false}>
-          <ImageBackground source={require("../../assets/images/featuredSlider.png")}
-            style={Styles.featuredImg} resizeMode="cover">
+          <ImageBackground source={IMGS.featuredSlider} style={Styles.featuredImg} resizeMode="cover">
             <LinearGradient
               style={Styles.featuredImg}
               colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 95)', '#53535300']}>

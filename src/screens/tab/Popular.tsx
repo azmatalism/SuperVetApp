@@ -3,67 +3,7 @@ import { FlatList, Image, ImageBackground, ScrollView, Text, TouchableOpacity, V
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Styles, dataThree } from "../../constants/Theme";
 import LinearGradient from "react-native-linear-gradient";
-
-// const data = [
-//   {
-//     image: require("../../assets/images/p1.png"),
-//     name: "Dr.X :",
-//     title: "The Out Sider (2022)",
-//     date: "May 25, 2022",
-//     writer: "Wasaam, Azmat, Ali, Usman",
-//     rating: "(222)",
-//   },
-//   {
-//     image: require("../../assets/images/p2.png"),
-//     name: "Sister Nina :",
-//     title: "The Saviour (2021)",
-//     date: "Jul 16, 2021",
-//     writer: "Azmat, Ali, Usman, Wasaam",
-//     rating: "(94)",
-//   },
-//   {
-//     image: require("../../assets/images/p3.png"),
-//     name: "Dr.Wolf :",
-//     title: "The Jungle Boy (2020)",
-//     date: "Mar 20, 2020",
-//     writer: " Ali, Usman",
-//     rating: "(150)",
-//   },
-//   {
-//     image: require("../../assets/images/p4.png"),
-//     name: "Dr.Psycho :",
-//     title: "Who I Psycho ? (2022)",
-//     date: "Sep 16, 2022",
-//     writer: "Ali, Usman, Wasaam, Azmat",
-//     rating: "(88)",
-//   },
-//   {
-//     image: require("../../assets/images/p5.png"),
-//     name: "Dr.X :",
-//     title: "The Out Sider (2022)",
-//     date: "Dec 10, 2022",
-//     writer: "Azmat, Ali, Usman",
-//     rating: "(100)",
-//   },
-//   {
-//     image: require("../../assets/images/p1.png"),
-//     name: "Dr.X :",
-//     title: "The Out Sider (2022)",
-//     date: "May 25, 2022",
-//     writer: "Wasaam, Azmat, Ali, Usman",
-//     rating: "(222)",
-//   },
-//   {
-//     image: require("../../assets/images/p2.png"),
-//     name: "Sister Nina :",
-//     title: "The Saviour (2021)",
-//     date: "Jul 16, 2021",
-//     writer: "Azmat, Ali, Usman, Wasaam",
-//     rating: "(94)",
-//   },
-
-
-// ]
+import { IMGS } from "../../constants";
 
 function ShowAlert() {
   Alert.alert('CONNECT METAMASK', 'You must be connect wallet before you can download this book.', [
@@ -83,12 +23,9 @@ function Popular() {
 
   return (
     <SafeAreaView style={Styles.container}>
-      <ImageBackground
-        source={require("../../assets/images/background.png")}
-        style={Styles.container}>
+      <ImageBackground source={IMGS.background} style={Styles.container}>
         <ScrollView >
-          <ImageBackground source={require("../../assets/images/featuredSlider.png")}
-            style={Styles.featuredImg} resizeMode="cover">
+          <ImageBackground source={IMGS.featuredSlider} style={Styles.featuredImg} resizeMode="cover">
             <LinearGradient
               style={Styles.featuredImg}
               colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 95)']}>
@@ -116,7 +53,7 @@ function Popular() {
                   <Text style={Styles.published}>Writer:</Text>
                   <Text style={[Styles.date, Styles.whiteColor]}>{item.writer}</Text>
                   <View style={{ flexDirection: "row", alignItems: "center", marginTop: 8 }}>
-                    <Image source={require("../../assets/images/rating.png")} />
+                    <Image source={IMGS.rating} />
                     <Text style={[Styles.date, Styles.whiteColor]}>   {item.rating}</Text>
 
                     <View style={Styles.btnVie}>

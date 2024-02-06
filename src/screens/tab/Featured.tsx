@@ -3,16 +3,14 @@ import { SafeAreaView, ImageBackground, ScrollView} from "react-native"
 import FeaturedSlider from "../../components/FeaturedSlider";
 import { COLORS, Styles, dataOne } from "../../constants/Theme";
 import FeaturedSuperGlobal from "../../components/FeaturedSuperGlobal";
-import { ROUTES } from "../../constants";
+import { IMGS, ROUTES } from "../../constants";
 
 
 function Featured({ navigation }) {
   return (
     <SafeAreaView style={Styles.container}>
       {/* Background */}
-      <ImageBackground
-        source={require("../../assets/images/background.png")}
-        resizeMode="cover">
+      <ImageBackground source={IMGS.background} resizeMode="cover">
 
         <ScrollView showsVerticalScrollIndicator={false}>
           {/* Featured Slider */}

@@ -4,18 +4,15 @@ import DrawerHeader from '../../components/DrawerHeader'
 import { COLORS, Styles, dataOne } from '../../constants/Theme'
 import LinearGradient from 'react-native-linear-gradient'
 import FeaturedSuperGlobal from '../../components/FeaturedSuperGlobal'
-import { ROUTES } from '../../constants'
+import { IMGS, ROUTES } from '../../constants'
 
-function PurshacePage({ route, navigation }) { 
+function PurshacePage({ route, navigation }) {
   // const {dataOne,dataTwo}=route.params
   // const navigation = useNavigation();
   return (
     <SafeAreaView style={Styles.container}>
       <DrawerHeader headerLogo={true} downIcon={true} />
-      <ImageBackground
-        source={require("../../assets/images/background.png")}
-        style={Styles.container}
-        resizeMode="cover">
+      <ImageBackground source={IMGS.background} style={Styles.container} resizeMode="cover">
         <ScrollView showsVerticalScrollIndicator={false}>
           <ImageBackground source={route.params.dataOne.faeturedImage} style={{ height: 250, width: '100%' }}
             resizeMode="cover">
@@ -37,37 +34,24 @@ function PurshacePage({ route, navigation }) {
                     <Text style={[Styles.date, Styles.whiteColor]}>Zohaib</Text>
                     <Text style={[Styles.date, { textAlign: "justify", width: "30%", }, Styles.whiteColor]}>{route.params.dataOne.description}
                       <Text style={[Styles.description, Styles.redColor]}>Read More</Text></Text>
-                    <View style={{ flexDirection: "row", alignItems: "center", marginTop: 8 }}>
-                      <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 15, }}>
-                        <TouchableOpacity
-                          activeOpacity={0.4}
-                          onPress={() => console.warn("Clicked")}>
-                          <View style={Styles.borderBtn}>
-                            <Text style={[Styles.date, Styles.whiteColor]}>500 svet</Text>
-                          </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                          activeOpacity={0.4}
-                          onPress={() => console.warn("Clicked")}>
-                          <View style={Styles.SimpleBtn}>
-                            <Text style={[Styles.date, Styles.uppercase, Styles.whiteColor]}>Buy Now</Text>
-                          </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                          activeOpacity={0.4}
-                          onPress={() => navigation.navigate(ROUTES.ALL_RENT_PAGE)}>
-                          <View style={[Styles.SimpleBtn, { backgroundColor: COLORS.buy }]}>
-                            <Text style={[Styles.date, Styles.uppercase, Styles.whiteColor]}>on RENT</Text>
-                          </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                          activeOpacity={0.4}
-                          onPress={() => console.warn("Clicked")}>
-                          <View style={[Styles.SimpleBtn, { backgroundColor: COLORS.dot }]}>
-                            <Text style={[Styles.date, Styles.uppercase, Styles.whiteColor]}>metamask</Text>
-                          </View>
-                        </TouchableOpacity>
-                      </View>
+                    {/************** Button **************/}
+                    <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10, marginTop: 10 }}>
+                      <TouchableOpacity activeOpacity={0.4} style={Styles.borderBtn}
+                        onPress={() => console.warn("500 svet")}>
+                        <Text style={[Styles.date, Styles.whiteColor]}>{"500 svet"}</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity activeOpacity={0.4} style={Styles.SimpleBtn}
+                        onPress={() => navigation.navigate(ROUTES.START_DOWNLOAD)}>
+                        <Text style={[Styles.date, Styles.whiteColor]}>{"BUY NOW"}</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity activeOpacity={0.4} style={[Styles.SimpleBtn, { backgroundColor: COLORS.buy }]}
+                        onPress={() => navigation.navigate(ROUTES.ALL_RENT_PAGE)}>
+                        <Text style={[Styles.date, Styles.whiteColor]}>{"ON RENT"}</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity activeOpacity={0.4} style={[Styles.SimpleBtn, { backgroundColor: COLORS.dot }]}
+                        onPress={() => console.warn("METAMASK")}>
+                        <Text style={[Styles.date, Styles.whiteColor]}>{"METAMASK"}</Text>
+                      </TouchableOpacity>
                     </View>
                   </View>
                 </View>

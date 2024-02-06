@@ -3,13 +3,14 @@ import { SafeAreaView, FlatList, Image, ImageBackground, Text, View, } from 'rea
 import { Styles, dataOne } from '../../constants/Theme'
 import ProgressBar from '../../components/ProgressBar'
 import DrawerHeader from '../../components/DrawerHeader'
+import { IMGS } from '../../constants'
 
 function Download() {
     return (
         <SafeAreaView style={Styles.container}>
             <DrawerHeader />
             <ImageBackground
-                source={require("../../assets/images/background.png")}
+                source={IMGS.background}
                 style={Styles.container}>
                 <FlatList
                     data={dataOne}

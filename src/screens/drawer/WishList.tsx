@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, ImageBackground, FlatList, Image,  } from 'react-native'
 import { COLORS, Styles, dataOne } from '../../constants/Theme'
 import DrawerHeader from '../../components/DrawerHeader'
+import { IMGS } from '../../constants'
 
 export default function WishList() {
 
@@ -9,7 +10,7 @@ export default function WishList() {
     <View style={Styles.container}>
       <DrawerHeader headerLogo={true} downIcon={true} />
       <ImageBackground
-        source={require("../../assets/images/background.png")}
+        source={IMGS.background}
         style={Styles.container}>
         <FlatList
           data={dataOne}

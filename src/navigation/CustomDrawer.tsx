@@ -3,23 +3,22 @@ import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from
 import { CONSTANT, Styles } from '../constants/Theme';
 import { DrawerContentScrollView, DrawerItemList, } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
-import { ROUTES } from '../constants';
+import { IMGS, ROUTES } from '../constants';
 
 const CustomDrawer = (props: any) => {
   const navigation = useNavigation();
-  return <ImageBackground
-    source={require('../assets/images/background.png')}
+  return <ImageBackground source={IMGS.background}
     style={styles.drawerBackground}>
     <DrawerContentScrollView {...props}>
       <View >
         <ImageBackground
-          source={require('../assets/images/drawerHeader.png')}
+          source={IMGS.drawerHeader}
           style={{ height: 150, width: "100%", justifyContent: "center" }}
           resizeMode='cover'>
           <View style={{ flexDirection: "row", justifyContent: "space-evenly", alignItems: "center", }}>
             <TouchableOpacity activeOpacity={0.7}
               onPress={() => navigation.navigate(ROUTES.PROFILE_PAGE)}>
-              <Image source={require('../assets/images/drawerIcons.png')}
+              <Image source={IMGS.drawerIcons}
                 style={{ width: 70, height: 70, borderRadius: 70 / 2 }} />
             </TouchableOpacity>
             <View>
@@ -37,7 +36,7 @@ export default CustomDrawer;
 
 const styles = StyleSheet.create({
   drawerStyle: {
-    height: "80%"
+    height: "100%"
   },
   drawerItemStyles: {
     borderRadius: CONSTANT.borderRadius,

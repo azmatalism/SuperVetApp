@@ -3,26 +3,25 @@ import React from 'react'
 import DrawerHeader from '../../components/DrawerHeader'
 import { COLORS, Styles, dataOne } from '../../constants/Theme';
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { ROUTES } from '../../constants';
+import { IMGS, ROUTES } from '../../constants';
 
-export default function MyComics({navigation}) {
+export default function MyComics({ navigation }) {
 
   return (
     <View style={Styles.container}>
       <DrawerHeader search={true} downIcon={true} />
       <ImageBackground
-        source={require("../../assets/images/background.png")}
+        source={IMGS.background}
         style={Styles.container}>
         <ScrollView >
-          <ImageBackground source={require("../../assets/images/drawerHeader.png")}
-            style={Styles.featuredImg} >
+          <ImageBackground source={IMGS.drawerHeader} style={Styles.featuredImg} >
             <View style={{ flexDirection: "row", backgroundColor: COLORS.popular, justifyContent: "center", alignItems: "center", height: 30, width: "40%", alignSelf: "flex-end", top: 70, right: 20 }}>
               <Ionicons name="camera" size={20} color="black" />
-              <Text style={[Styles.SecondTitle, {color:COLORS.black, marginLeft:5}]}>EDIT COVER PHOTO</Text>
+              <Text style={[Styles.SecondTitle, { color: COLORS.black, marginLeft: 5 }]}>EDIT COVER PHOTO</Text>
             </View>
           </ImageBackground>
           <View style={{ flexDirection: "row", alignItems: "center", }}>
-            <Image source={require('../../assets/images/drawerIcons.png')}
+            <Image source={IMGS.drawerIcons}
               style={{ width: 80, height: 80, borderRadius: 80 / 2, bottom: 40, left: 15 }} />
             <View style={{ left: 20 }}>
               <Text style={Styles.SecondTitle}>Wasaam Qazi</Text>
@@ -32,9 +31,9 @@ export default function MyComics({navigation}) {
           {
             dataOne.map((item, index) =>
               <View key={index} style={{ marginTop: 20, }}>
-                <View style={[Styles.margin5,{ flexDirection: "row" }]}>
+                <View style={[Styles.margin5, { flexDirection: "row" }]}>
                   <TouchableOpacity
-                    onPress={() => navigation.navigate(ROUTES.PURSHACE_PAGE, { dataOne: item})}
+                    onPress={() => navigation.navigate(ROUTES.PURSHACE_PAGE, { dataOne: item })}
                     activeOpacity={0.7}>
 
                     <Image source={item.faeturedImage} resizeMode="contain" />

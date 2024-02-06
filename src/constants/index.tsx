@@ -1,2 +1,3 @@
 import ROUTES from './routes';
-export {ROUTES};
+import IMGS from './imgs';
+export {ROUTES, IMGS};

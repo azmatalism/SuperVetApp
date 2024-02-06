@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, ImageBackground, FlatList, Image, TouchableOpacity, } from 'react-native'
-import { COLORS, Styles, dataOne } from '../../constants/Theme'
+import { Styles, dataOne } from '../../constants/Theme'
 import DrawerHeader from '../../components/DrawerHeader'
-import { ROUTES } from '../../constants'
+import { IMGS, ROUTES } from '../../constants'
 
 export default function ArchivedBook({navigation}) {
 
@@ -10,7 +10,7 @@ export default function ArchivedBook({navigation}) {
     <View style={Styles.container}>
       <DrawerHeader headerLogo={true} downIcon={true} />
       <ImageBackground
-        source={require("../../assets/images/background.png")}
+        source={IMGS.background}
         style={Styles.container}>
         <FlatList
           data={dataOne}

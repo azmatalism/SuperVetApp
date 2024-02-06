@@ -1,11 +1,16 @@
 import React from 'react'
-import { Image, StyleSheet,} from 'react-native'
+import {StyleSheet,} from 'react-native'
 import { COLORS,  CONSTANT } from '../constants/Theme';
 import { ROUTES } from '../constants';
 import { ArchivedBook, MyComics, MyTanents, WishList } from '../screens/screens';
 import CustomDrawer from './CustomDrawer';
 import TabNavigator from './TabNavigator';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Icon1 from 'react-native-vector-icons/Ionicons'
+import Icon2 from 'react-native-vector-icons/FontAwesome'
+import Icon3 from 'react-native-vector-icons/Entypo'
+import Icon4 from 'react-native-vector-icons/MaterialIcons'
+import Icon5 from 'react-native-vector-icons/FontAwesome6'
 
 const Drawers = createDrawerNavigator();
 
@@ -24,7 +29,7 @@ function DrawerNavigator() {
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
               drawerIcon: () => (
-                <Image source={require('../assets/images/drawer2.png')} style={{ height: 30, width: 30 }} resizeMode='contain' />
+                <Icon1 name="home" size={22} color={COLORS.white} />
               )
             }}
             component={TabNavigator} />
@@ -33,7 +38,7 @@ function DrawerNavigator() {
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
               drawerIcon: () => (
-                <Image source={require('../assets/images/drawer3.png')} style={{ height: 30, width: 30 }} resizeMode='contain' />
+                <Icon2 name="book" size={22} color={COLORS.white} />
               )
             }}
             component={MyComics}
@@ -43,7 +48,7 @@ function DrawerNavigator() {
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
               drawerIcon: () => (
-                <Image source={require('../assets/images/drawer4.png')} style={{ height: 30, width: 30 }} resizeMode='contain' />
+                <Icon5 name="handshake-simple" size={22} color={COLORS.white} />
               )
             }}
             component={MyTanents} />
@@ -52,7 +57,7 @@ function DrawerNavigator() {
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
               drawerIcon: () => (
-                <Image source={require('../assets/images/drawer6.png')} style={{ height: 30, width: 30 }} resizeMode='contain' />
+                <Icon3 name="open-book" size={22} color={COLORS.white} />
               )
             }}
             component={ArchivedBook} />
@@ -61,7 +66,7 @@ function DrawerNavigator() {
               drawerActiveTintColor: COLORS.dot,
               drawerInactiveTintColor: COLORS.white,
               drawerIcon: () => (
-                <Image source={require('../assets/images/drawer7.png')} style={{ height: 30, width: 30 }} resizeMode='contain' />
+                <Icon4 name="format-list-bulleted-add" size={22} color={COLORS.white} />
               )
             }}
             component={WishList} />

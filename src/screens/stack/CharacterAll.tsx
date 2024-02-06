@@ -1,8 +1,9 @@
 import React from 'react'
-import {FlatList, Alert, Image, ImageBackground, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Alert, Image, ImageBackground, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { Styles, dataOne } from '../../constants/Theme';
 import DrawerHeader from '../../components/DrawerHeader';
 import LinearGradient from 'react-native-linear-gradient';
+import { IMGS } from '../../constants';
 
 function ShowAlert() {
     Alert.alert('CONNECT METAMASK', 'You must be connect wallet before you can download this book.', [
@@ -17,16 +18,13 @@ function ShowAlert() {
     );
 }
 
-function CharacterAll () {
+function CharacterAll() {
     return (
         <SafeAreaView style={Styles.container}>
             <DrawerHeader search={true} downIcon={true} />
-            <ImageBackground
-                source={require("../../assets/images/background.png")}
-                style={Styles.container}>
+            <ImageBackground source={IMGS.background} style={Styles.container}>
                 <ScrollView>
-                    <ImageBackground source={require("../../assets/images/charaBG.png")}
-                        style={Styles.featuredImg} resizeMode="cover">
+                    <ImageBackground source={IMGS.charaBG} style={Styles.featuredImg} resizeMode="cover">
                         <LinearGradient
                             style={Styles.featuredImg}
                             colors={['rgba(83, 83, 83, 0) 207.79%)', 'rgba(0, 0, 0, 0.85) 35.03%']}>
